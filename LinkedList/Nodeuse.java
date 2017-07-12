@@ -53,6 +53,22 @@ public class Nodeuse {
 		System.out.println();
 	}
 	
+	public static Node<Integer> reverse(Node<Integer> head)
+	{
+		if(head==null || head.next==null)
+		{
+		return head;
+		}
+		
+		Node<Integer> smallHead=reverse(head.next);
+		Node<Integer> smallTail=head.next;
+		head.next=null;
+		smallTail.next=head;
+		smallTail=head;
+		
+		return smallHead;
+		
+	}
 	
 	
 	public static void main(String[] args) {
@@ -63,13 +79,8 @@ public class Nodeuse {
 		head=takeinput();
 		printll(head);
 		
-		
-		//LinkedList<Integer> list=new LinkedList<Integer>();
-		//list.addToBack(10);
-		
-		LinkedList<Integer> li= new LinkedList<Integer>();
-		//Node<Integer> obj=new Node<Integer>();
-		
+		Node<Integer> revHead=reverse(head);
+		printll(revHead);
 		
 		
 		
