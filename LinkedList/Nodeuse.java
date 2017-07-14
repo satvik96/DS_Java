@@ -69,6 +69,33 @@ public class Nodeuse {
 		return smallHead;
 		
 	}
+	public static Node<Integer> reverse2(Node<Integer> head)
+	{
+		if(head==null)
+		{
+			System.out.println("Empty");
+			return head;
+		}
+		Node<Integer> curr=head;
+		Node<Integer> prev=null;
+		Node<Integer> next=head.next;
+		
+		while(next!=null)
+		{
+		
+			curr.next=prev;
+			prev=curr;
+			curr=next;
+			next=next.next;
+			System.out.println(prev.data);
+
+		}
+		curr.next=prev;
+		return curr;
+
+
+
+	}
 	
 	
 	public static void main(String[] args) {
@@ -80,7 +107,9 @@ public class Nodeuse {
 		printll(head);
 		
 		Node<Integer> revHead=reverse(head);
+		Node<Integer> revHead2=reverse2(head);
 		printll(revHead);
+		printll(revHead2);
 		
 		
 		
